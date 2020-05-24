@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+*{
+    font-family: 'Roboto Condensed', sans-serif;
+    box-sizing: border-box;
+}
+.navbar-light .navbar-brand {
+    color: #f8f9fa;
+    font-weight: 700;
+    font-size: xx-large;
+}
+
+.bg-light {
+    background-color: #6c757d!important;
+}
+
+.justify-content-center {
+    background-color: #6c757d;
+}
+
+p .reminder{
+    color: red;
+    font-weight: 700;
+}
+
+header{
+    margin: 10px;
+}
+.container {
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	min-height: 100vh;
+}

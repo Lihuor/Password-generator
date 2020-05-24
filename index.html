@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="script.js"></script>
+
+    <title>Random Password Generator</title>
+  </head>
+  <body> 
+    <header>
+    <div class="d-flex justify-content-center">
+    <nav class="navbar sticky-top navbar-light bg-light">
+      <a class="navbar-brand" href="#">Random Password Generator</a>
+    </nav>
+    </div>
+  </header>
+    <h4>As an employee you will need this type of password access to sensitive data.</h4>
+
+      <p>We are a team of developers who will ensure the customers' website is SEO optimised, mobile responsive and designed to deliver results. We go beyond aesthetic design and ensure customers' websites are built to generate leads, convert to sales and be a visual representation of their brand across all devices.</p>
+
+      <p>You will need this password for your personal password for login CRM account. Please remember save this password in a secure place. Do not forget this password. Remember to <span class="reminder"> REGENERATE YOUR PASSWORD </span> every month for security reason.</p>
+<!-- Password Generator -->
+
+      <div class="container">
+        <h2>Password Generator</h2>
+        <div class="result-container">
+          <span id="result"></span>
+          <button class="btn" id="clipboard">
+            <i class="far fa-clipboard"></i>
+          </button>
+        </div>
+        <div class="settings">
+          <div class="setting">
+            <label>Password length</label>
+            <input type="number" id="length" min='4' max='20' value='20' />
+          </div>
+          <div class="setting">
+            <label>Include uppercase letters</label> 
+            <input type="checkbox" id="uppercase" checked />
+          </div>
+          <div class="setting">
+            <label>Include lowercase letters</label> 
+            <input type="checkbox" id="lowercase" checked />
+          </div>
+          <div class="setting">
+            <label>Include numbers</label> 
+            <input type="checkbox" id="numbers" checked />
+          </div>
+          <div class="setting">
+            <label>Include symbols</label> 
+            <input type="checkbox" id="symbols" checked />
+          </div>
+        </div>
+        <button class="btn btn-large" id="generate">
+          Generate password
+        </button>
+      </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
