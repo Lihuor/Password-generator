@@ -1,37 +1,37 @@
-// DOM elements
-
-const resultEl = document.getElementById('result');
-const lengthEl = document.getElementById('length');
-const uppercaseEl = document.getElementById('uppercase');
-const lowercaseEl = document.getElementById('lowercase');
-const specialCharacterEl = document.getElementById('specialCharacter');
-const symbolEl = document.getElementById('symbol');
-const generateEl = document.getElementById('generate');
-const clipboardEl = document.getElementById('clipboard');
 
 
-const randomFunc = {
-    lower: getRandomLower,
-    upper: getRandomUpper,
-    number: getRandomNumber,
-    symbol: getRandomSymbol,
-}
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
 
-generate.addEventListener("click", () >= {
-    const length = lengthEl.value;
+// Write password to the #password input
+function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
 
-    console.log(length);
+    passwordText.value = password;
 
-});
+};
+
+// Generate Questions
+function writePassword(){
+var passwordLength = prompt ("How many numbers do you want for your password? It must be between 8 - 128 characters.");
+var upperCase = confirm("Do you want the uppercase?");
+var lowerCase = confirm("Do you also want the lowercase?");
+var number = confirm("Do you also want the number?");
+var symbol = confirm("Do you also want the symbol?");
+
+var minimumCount = 0;
+var minimumUpperCase = "";
+var minimumLowerCase = "";
+var minimumNumber = "";
+var minimumSymbol = "";
 
 // Generator functions
-
-function getRandomLower(){
-    return String.fromCharCode(Math.floor(Math.random() * 26)+97);
-}
-
 function getRandomUpper(){
     return String.fromCharCode(Math.floor(Math.random() * 26)+65);
+}
+function getRandomLower(){
+    return String.fromCharCode(Math.floor(Math.random() * 26)+97);
 }
 
 function getRandomNumber(){
@@ -39,96 +39,50 @@ function getRandomNumber(){
 }
 
 function getRandomSymbol(){
-    const symbols = '!@#$%^&*(){}=<>/,.';
-    return symbols [Math.floor(Math.random() * symbols.length)];
+    const symbol = '!@#$%^&*(){}=<>/,.';
+    return symbol [Math.floor(Math.random() * symbol.length)];
+
+};
+
+if (upperCase === true) {
+    minimumUpperCase = getRandomUpper();
+    minimumCount++;
 }
 
-console.log(getRandomSymbol());
+if (lowerCase === true) {
+    minimumLowerCase = getRandomLower();
+    minimumCount++;
+}
+if (number === true) {
+    minimumNumber = getRandomNumber();
+    minimumCount++;
+}
+if (symbol === true) {
+    minimumSymbol = getRandomSymbol();
+    minimumCount++;
+}
+
+// empty string variable for the for loop below
+var randomPasswordGenerated = "";
+
+// loop getting random characters
+for (let i = 0; i < (parseInt(passwordLength) - minimumCount); i++) {
+  var randomNumberPicked = Math.floor(Math.random() * 4);
+
+  randomPasswordGenerated += randomNumberPicked;
+
+}
+
+// to make sure characters are added to the password
+randomPasswordGenerated += minimumNumber;
+randomPasswordGenerated += minimumLowerCase;
+randomPasswordGenerated += minimumUpperCase;
+randomPasswordGenerated += minimumSymbol;
 
 
+return randomPasswordGenerated;
 
+}
 
-
-
-
-
-// const resultEl = document.getElementById('result');
-// const lengthEl = document.getElementById('length');
-// const uppercaseEl = document.getElementById('uppercase');
-// const lowercaseEl = document.getElementById('lowercase');
-// const numbersEl = document.getElementById('numbers');
-// const symbolsEl = document.getElementById('symbols');
-// const generateEl = document.getElementById('generate');
-// const clipboard = document.getElementById('clipboard');
-
-// const randomFunc = {
-// 	lower: getRandomLower,
-// 	upper: getRandomUpper,
-// 	number: getRandomNumber,
-// 	symbol: getRandomSymbol
-// }
-
-// clipboard.addEventListener('click', () => {
-// 	const textarea = document.createElement('textarea');
-// 	const password = resultEl.innerText;
-	
-// 	if(!password) { return; }
-	
-// 	textarea.value = password;
-// 	document.body.appendChild(textarea);
-// 	textarea.select();
-// 	document.execCommand('copy');
-// 	textarea.remove();
-// 	alert('Password copied to clipboard');
-// });
-
-// generate.addEventListener('click', () => {
-// 	const length = +lengthEl.value;
-// 	const hasLower = lowercaseEl.checked;
-// 	const hasUpper = uppercaseEl.checked;
-// 	const hasNumber = numbersEl.checked;
-// 	const hasSymbol = symbolsEl.checked;
-	
-// 	resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
-// });
-
-// function generatePassword(lower, upper, number, symbol, length) {
-// 	let generatedPassword = '';
-// 	const typesCount = lower + upper + number + symbol;
-// 	const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
-	
-// 	// Doesn't have a selected type
-// 	if(typesCount === 0) {
-// 		return '';
-// 	}
-	
-// 	// create a loop
-// 	for(let i=0; i<length; i+=typesCount) {
-// 		typesArr.forEach(type => {
-// 			const funcName = Object.keys(type)[0];
-// 			generatedPassword += randomFunc[funcName]();
-// 		});
-// 	}
-	
-// 	const finalPassword = generatedPassword.slice(0, length);
-	
-// 	return finalPassword;
-// }
-
-// function getRandomLower() {
-// 	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-// }
-
-// function getRandomUpper() {
-// 	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-// }
-
-// function getRandomNumber() {
-// 	return +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-// }
-
-// function getRandomSymbol() {
-// 	const symbols = '!@#$%^&*(){}[]=<>/,.'
-// 	return symbols[Math.floor(Math.random() * symbols.length)];
-// }
-
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
