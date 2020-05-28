@@ -22,8 +22,6 @@ Need to have upperCase
 Need to have lowerCase
 Need to have number
 Need to have symbol
-
-
 ```
 
 ## Review
