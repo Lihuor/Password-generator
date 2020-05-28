@@ -1,5 +1,3 @@
-
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -13,7 +11,7 @@ function writePassword() {
 };
 
 // Generate Questions
-function writePassword(){
+function generatePassword(){
 var passwordLength = prompt ("How many numbers do you want for your password? It must be between 8 - 128 characters.");
 var upperCase = confirm("Do you want the uppercase?");
 var lowerCase = confirm("Do you also want the lowercase?");
