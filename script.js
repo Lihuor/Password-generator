@@ -3,83 +3,85 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
+  // you can create a function named generatePassword that creates the password
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-    passwordText.value = password;
+  passwordText.value = password;
 
-};
+}
 
 // Generate Questions
-function generatePassword(){
-var passwordLength = prompt ("How many numbers do you want for your password? It must be between 8 - 128 characters.");
-var upperCase = confirm("Do you want the uppercase?");
-var lowerCase = confirm("Do you also want the lowercase?");
-var number = confirm("Do you also want the number?");
-var symbol = confirm("Do you also want the symbol?");
-
-var minimumCount = 0;
-var minimumUpperCase = "";
-var minimumLowerCase = "";
-var minimumNumber = "";
-var minimumSymbol = "";
-
-// Generator functions
-function getRandomUpper(){
-    return String.fromCharCode(Math.floor(Math.random() * 26)+65);
-}
-function getRandomLower(){
-    return String.fromCharCode(Math.floor(Math.random() * 26)+97);
+function generatePassword() {
+  var passwordLength = 0;
+  while (passwordLength < 8 || passwordLength > 128) {
+  passwordLength = prompt("How many characters do you want in your password? (between 8 and 128)");
 }
 
-function getRandomNumber(){
-    return String.fromCharCode(Math.floor(Math.random() * 10)+48);
-}
+  var upperCase = confirm("Do you want the uppercase?");
+  var lowerCase = confirm("Do you want the lowercase?");
+  var number = confirm("Do you want the number?");
+  var symbol = confirm("Do you want the symbol?");
 
-function getRandomSymbol(){
-    const symbol = '!@#$%^&*(){}=<>/,.';
-    return symbol [Math.floor(Math.random() * symbol.length)];
+  var minimumCount = 0;
+  var minimumUpperCase = "";
+  var minimumLowerCase = "";
+  var minimumNumber = "";
+  var minimumSymbol = '';
 
-};
+  // Generate Function
+  function getRandomUpperCase() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+  }
 
-if (upperCase === true) {
-    minimumUpperCase = getRandomUpper();
+  function getRandomLowerCase() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  }
+
+  function getRandomNumber() {
+    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+  }
+
+  function getRandomSymbol() {
+    const symbol = "!@#$%^&*(){}[]"
+    return symbol[Math.floor(Math.random() * symbol.length)];
+  };
+
+  // Let give conditions
+  if (upperCase === true) {
+    minimumUpperCase = getRandomUpperCase();
     minimumCount++;
-}
+  }
 
-if (lowerCase === true) {
-    minimumLowerCase = getRandomLower();
+  if (lowerCase === true) {
+    minimumLowerCase = getRandomLowerCase();
     minimumCount++;
-}
-if (number === true) {
+  }
+  if (number === true) {
     minimumNumber = getRandomNumber();
     minimumCount++;
-}
-if (symbol === true) {
+  }
+  if (symbol === true) {
     minimumSymbol = getRandomSymbol();
     minimumCount++;
-}
+  }
 
-// empty string variable for the for loop below
-var randomPasswordGenerated = "";
+  // empty string variable for the loop below
+  var randomPasswordGenerated = "";
 
-// loop getting random characters
-for (let i = 0; i < (parseInt(passwordLength) - minimumCount); i++) {
-  var randomNumberPicked = Math.floor(Math.random() * 4);
+  // Loop getting random characters
+  for (let i = 0; i < (parseInt(passwordLength) - minimumCount); i++) {
+    var randomPasswordPicked = Math.floor(Math.random() * passwordLength);
+    randomPasswordGenerated += randomPasswordPicked;
+  }
 
-  randomPasswordGenerated += randomNumberPicked;
+  // character will be added to the password
+  randomPasswordGenerated += minimumNumber;
+  randomPasswordGenerated += minimumLowerCase;
+  randomPasswordGenerated += minimumUpperCase;
+  randomPasswordGenerated += minimumSymbol;
 
-}
-
-// to make sure characters are added to the password
-randomPasswordGenerated += minimumNumber;
-randomPasswordGenerated += minimumLowerCase;
-randomPasswordGenerated += minimumUpperCase;
-randomPasswordGenerated += minimumSymbol;
-
-
-return randomPasswordGenerated;
-
+  return randomPasswordGenerated;
 }
 
 // Add event listener to generate button
